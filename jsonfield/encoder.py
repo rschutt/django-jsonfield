@@ -55,4 +55,6 @@ class JSONEncoder(json.JSONEncoder):
                 pass
         elif hasattr(obj, '__iter__'):
             return tuple(item for item in obj)
+        elif callable(obj):
+            return obj()https://docs.djangoproject.com/en/2.1/ref/models/fields/#django.db.models.Field.default
         return super(JSONEncoder, self).default(obj)
